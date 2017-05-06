@@ -49,7 +49,7 @@ var sumArrays = function(arr1, arr2){
 var stringCount = function(str){
   return str.length;
 
-}
+};
 
 /* #arrayLength
  *
@@ -61,7 +61,7 @@ var stringCount = function(str){
 var arrayLength = function(arr){
  return arr.length;
 
-}
+};
 
 /* #countAll
  *
@@ -70,7 +70,14 @@ var arrayLength = function(arr){
  * @param {Array}
  * @return {Number}
  */
-var countAll;
+var countAll = function(arr){
+  var sum = 0;
+  for(var i = 0; i<arr.length; i++){
+    sum += arr[i];
+  }
+  return sum;
+
+};
 
 /* #countStrings
  *
@@ -405,7 +412,7 @@ module.exports = {
   sumArrays: sumArrays, 
   stringCount: stringCount,
   arrayLength: arrayLength,
-  countAll: null,
+  countAll: countAll,
   countStrings: null,
   countAllStrings: null,
   convertToArray: null,
