@@ -6,17 +6,13 @@
  * @return {Array} // [2,4,6]
  */
 
-var doubleArray = function(arr) {
-  var result = [];
-  for (var i = 0; i < arr.length; i++) {
-    result.push(arr[i] * 2);
+var doubleArray = function(arr){
+  var double = [];
+  for(var i = 0; i<arr.length; i++){
+    double.push(arr[i]*2);
   }
-  return result;
-};
-
-doubleArray([1,2,3]);
-
-
+  return double;
+}
 
 
 /* #sumArrays
@@ -27,16 +23,16 @@ doubleArray([1,2,3]);
  * @param {Array}
  * @return {Bool}
  */
-var sumArrays = function(arr1, arr2){
-  var total = 0;
-  var result = [];
-  for(var i = 0; i<arr1.length; i++){
-    total += arr1[i] + arr2[i];
-  }
-    result.push(total);
-    return result;
-};
 
+
+var sumArrays = function(arr1, arr2){
+  var sum = 0;
+  //var arrSum = [];
+  for(var i = 0; i<arr1.length; i++){
+    sum += arr1[i] + arr2[i];
+  }
+  return sum;
+}
 
 
 /* #stringCount
@@ -46,10 +42,12 @@ var sumArrays = function(arr1, arr2){
  * @param {String}
  * @return {Number}
  */
-var stringCount = function(str){
-  return str.length;
 
-};
+
+ var stringCount = function(str){
+  return str.length;
+ }
+
 
 /* #arrayLength
  *
@@ -58,10 +56,10 @@ var stringCount = function(str){
  * @param {String}
  * @return {Number}
  */
-var arrayLength = function(arr){
- return arr.length;
 
-};
+var arrayLength = function(arr){
+  return arr.length;
+}
 
 /* #countAll
  *
@@ -70,14 +68,15 @@ var arrayLength = function(arr){
  * @param {Array}
  * @return {Number}
  */
-var countAll = function(arr){
-  var sum = 0;
-  for(var i = 0; i<arr.length; i++){
-    sum += arr[i];
-  }
-  return sum;
 
-};
+ var countAll = function(arr){
+    var sum = 0;
+    for(var i = 0; i<arr.length; i++){
+      sum += arr[i];
+    }
+    return sum;
+ };
+
 
 /* #countStrings
  *
@@ -86,7 +85,14 @@ var countAll = function(arr){
  * @param {Array}
  * @return {Array}
  */
-var countStrings;
+var countStrings = function(arr){
+  var arrStr = [];
+  for(var i = 0; i<arr.length; i++){
+    arrStr.push(arr[i].length);
+  }
+  return arrStr;
+
+};
 
 /* #countAllStrings
  *
@@ -95,7 +101,14 @@ var countStrings;
  * @param {String}
  * @return {Number}
  */
-var countAllStrings;
+var countAllStrings = function(arr){
+  var sum = 0;
+  for(var i = 0; i<arr.length; i++){
+    sum += arr[i].length;
+  }
+  return sum;
+
+};
 
 /* #convertToArray
  *
@@ -104,7 +117,14 @@ var countAllStrings;
  * @param {Object}
  * @return {Array}
  */
-var convertToArray;
+var convertToArray = function(obj){
+  var objArr = [];
+  for(var val in obj){
+    objArr.push(obj[val]);
+  }
+  return objArr;
+
+};
 
 /* #objectSize
  *
@@ -113,7 +133,15 @@ var convertToArray;
  * @param {Object}
  * @return {Number}
  */
-var objectSize;
+var objectSize = function(obj){
+  var numKeys = 0;
+  for(key in obj){
+    if(obj.hasOwnProperty(key)){
+      numKeys++;
+    }
+  }
+  return numKeys;
+};
 
 /* #createZeroFilledArray
  *
@@ -122,7 +150,19 @@ var objectSize;
  * @param {Number}
  * @return {Zero}
  */
-var createZeroFilledArray;
+var createZeroFilledArray = function(num){
+  var numArr = [];
+  var zeroBox;
+  for(var i = 0; i<num; i++){
+    if(typeof num === "number"){
+      zeroBox = num - num;
+      numArr.push(zeroBox);
+    }else{
+      return null;
+    }
+  }
+  return numArr;
+};
 
 /* #poppedArray
  *
@@ -131,7 +171,10 @@ var createZeroFilledArray;
  * @param {Array}
  * @return {Array}
  */
-var poppedArray;
+var poppedArray = function(arr){
+  var pops = arr.pop();
+  return arr;
+}
 
 /* #splitString
  *
@@ -140,7 +183,11 @@ var poppedArray;
  * @param {String}
  * @return {Array}
  */
-var splitString;
+var splitString = function(str){
+  var splitStr = str.split("");
+  return splitStr;
+
+}
 
 /* #lengthOfLast
  *
@@ -149,7 +196,10 @@ var splitString;
  * @param {String}
  * @return {Number}
  */
-var lengthOfLast;
+var lengthOfLast = function(arr){
+  var last = arr[arr.length - 1];
+  return last.length;
+}
 
 /* #sumBelowTen
  *
@@ -394,8 +444,24 @@ var charCountMap;
  * @param {String}
  * @return {Bool}
  */
-var frequencyMap;
+/**/
 
+
+var frequencyMap = function(arr){
+  var freqMap = {}
+  for(var i = 0; i<arr.length; i++){
+    //does this string exist in the obj?
+    //if it does, just increment the value
+    //if it doesn't create a new field in the obj and set to 1
+    if(freqMap.hasOwnProperty(arr[i])){ //hasOwnProperty https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
+      freqMap[arr[i]]++;
+    }else{
+      freqMap[arr[i]] = 1;
+    } 
+  }
+  console.log(freqMap)
+  return freqMap;
+}
 /* #tupleConvertToObject
  *
  * takes in an array of tuples and and returns an object whos keys are 
@@ -413,14 +479,14 @@ module.exports = {
   stringCount: stringCount,
   arrayLength: arrayLength,
   countAll: countAll,
-  countStrings: null,
-  countAllStrings: null,
-  convertToArray: null,
-  objectSize: null,
-  createZeroFilledArray: null,
-  poppedArray: null,
-  splitString: null,
-  lengthOfLast: null,
+  countStrings: countStrings,
+  countAllStrings: countAllStrings,
+  convertToArray: convertToArray,
+  objectSize: objectSize,
+  createZeroFilledArray: createZeroFilledArray,
+  poppedArray: poppedArray,
+  splitString: splitString,
+  lengthOfLast: lengthOfLast,
   sumBelowTen: null,
   moreThanTenLetters: null,
   multiplyAll: null,
@@ -446,6 +512,6 @@ module.exports = {
   arrayToObjectNums: null,
   stringToKeys: null,
   charCountMap: null,
-  frequencyMap: null,
+  frequencyMap: frequencyMap,
   tupleConvertToObject: null
 }
