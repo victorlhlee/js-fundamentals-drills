@@ -258,7 +258,14 @@ var multiplyAll = function(arr){
  * @param {Object}
  * @return {Array}
  */
-var getKeys;
+var getKeys = function(obj){
+  var keyArr = [];
+  for(var keys in obj){
+    keyArr.push(keys);
+  }
+  return keyArr;
+  
+}
 
 /* #sumAllPositive
  *
@@ -267,7 +274,15 @@ var getKeys;
  * @param {String}
  * @return {Number}
  */
-var sumAllPositive;
+var sumAllPositive = function(arr){
+  var sum = 0;
+  for(var i = 0; i<arr.length; i++){
+    if(arr[i] >= 0){
+      sum += arr[i];
+    }
+    }
+    return sum;
+}
 
 /* #stringCountBelowThree
  *
@@ -513,8 +528,8 @@ module.exports = {
   sumBelowTen: sumBelowTen,
   moreThanTenLetters: moreThanTenLetters,
   multiplyAll: multiplyAll,
-  getKeys: null,
-  sumAllPositive: null,
+  getKeys: getKeys,
+  sumAllPositive: sumAllPositive,
   stringCountBelowThree: null,
   countObjects: null,
   getObjectKeys: null,
@@ -525,7 +540,7 @@ module.exports = {
   tupleToObjectReverse: null,
   strToKeys: null,
   getValues: null,
-  getKeys: null,
+  getKeys: getKeys,
   objectToArray: null,
   arrayToObject: null,
   arraysToObject: null,
